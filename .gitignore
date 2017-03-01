@@ -4,3 +4,4 @@
 *.name
 *.ids
 keys.py
+@.sqlite3
