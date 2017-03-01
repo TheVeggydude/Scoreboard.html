@@ -1,0 +1,6 @@
+*.pyc
+*.xml
+*.iml
+*.name
+*.ids
+keys.py
