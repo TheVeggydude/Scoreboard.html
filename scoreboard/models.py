@@ -11,3 +11,9 @@ class Team(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Exercise(models.Model):
+    title = models.CharField(max_length=10000)
+    text = models.TextField()
+    available = models.BooleanField(default=False)
