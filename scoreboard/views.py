@@ -22,7 +22,7 @@ def index(request):
 class ExerciseTable(tables.Table):
     class Meta:
         model = Exercise
-        fields = {'title', 'text'}
+        fields = {'text'}
         attrs = {"class": "table"}
         empty_text = "No assignments available"
 
