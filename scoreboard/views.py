@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Team
+from .models import Team, Exercise
 import django_tables2 as tables
 
 
@@ -18,3 +17,19 @@ def index(request):
     tables.config.RequestConfig(request).configure(teams_table)
 
     return render(request, 'scoreboard/index.html', {'teams_table': teams_table})
+
+
+class ExerciseTable(tables.Table):
+    class Meta:
+        model = Exercise
+        fields = {'title', 'text'}
+        attrs = {"class": "table"}
+        empty_text = "No assignments available"
+
+
+def exercises(request):
+    exercises = Exercise.objects.all().filter(available=True)
+    exercise_table = ExerciseTable(exercises, prefix='exercise-')
+    tables.config.RequestConfig(request).configure(exercise_table)
+
+    return render(request, 'scoreboard/exercises.html', {'exercise_table': exercise_table})
