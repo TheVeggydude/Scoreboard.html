@@ -28,8 +28,6 @@ class ExerciseTable(tables.Table):
 
 
 def exercises(request):
-    exercises = Exercise.objects.all().filter(available=True)
-    exercise_table = ExerciseTable(exercises, prefix='exercise-')
-    tables.config.RequestConfig(request).configure(exercise_table)
+    exercise_list = Exercise.objects.all().filter(available=True).order_by('order')
 
-    return render(request, 'scoreboard/exercises.html', {'exercise_table': exercise_table})
+    return render(request, 'scoreboard/exercises.html', {'exercise_list': exercise_list})
