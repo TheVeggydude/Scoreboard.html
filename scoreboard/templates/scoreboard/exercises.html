@@ -23,9 +23,9 @@
 
         {% for exercise in exercise_list %}
         {% if forloop.counter|divisibleby:2 %}
-            <div style="background-color:#e6e6e6">
+            <div style="padding-left:10px;background-color:#e6e6e6">
         {% else %}
-            <div style="">
+            <div style="padding-left:10px;">
         {% endif %}
                 {{ exercise.text|safe }}
             </div>
