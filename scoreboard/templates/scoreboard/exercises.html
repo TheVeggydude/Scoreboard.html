@@ -17,16 +17,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<body style="margin-bottom:20px">
 
     {% if exercise_list %}
 
         {% for exercise in exercise_list %}
-        {% if forloop.counter|divisibleby:2 %}
             <div style="padding-left:10px;padding-right:10px;background-color:#e6e6e6">
-        {% else %}
-            <div style="padding-left:10px;padding-right:10px;">
-        {% endif %}
                 {{ exercise.text|safe }}
             </div>
         {% endfor %}
